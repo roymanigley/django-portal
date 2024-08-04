@@ -1,0 +1,194 @@
+.portal-card-image-link:hover {
+	background: none !important;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.portal-card-image-link>.portal-card-title {
+ 	opacity: 0;
+	color: black;
+}
+
+.portal-card-image-link:hover>.portal-card-title {
+	opacity: 1;
+}
+
+.portal-card {
+	aspect-ratio: 1 / 1;
+	background: teal;
+	overflow-wrap: break-word;
+	overflow-y: auto;
+	border-radius: 25px;
+}
+
+.portal-card-image-link {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.portal-card-html {
+	padding: 0 1em 0 1em;
+}
+
+
+
+
+.h-1 {
+	aspect-ratio: auto;
+	grid-row: span 1 / auto;
+}
+
+.h-2 {
+	aspect-ratio: auto;
+	grid-row: span 2 / auto;
+}
+
+.h-3 {
+	aspect-ratio: auto;
+	grid-row: span 3 / auto;
+}
+
+.h-4 {
+	aspect-ratio: auto;
+	grid-row: span 4 / auto;
+}
+
+.h-5 {
+	aspect-ratio: auto;
+	grid-row: span 5 / auto;
+}
+
+.h-6 {
+	aspect-ratio: auto;
+	grid-row: span 6 / auto;
+}
+
+.h-7 {
+	aspect-ratio: auto;
+	grid-row: span 7 / auto;
+}
+
+.h-8 {
+	aspect-ratio: auto;
+	grid-row: span 8 / auto;
+}
+
+.h-9 {
+	aspect-ratio: auto;
+	grid-row: span 9 / auto;
+}
+
+.h-10 {
+	aspect-ratio: auto;
+	grid-row: span 10 / auto;
+}
+
+.h-11 {
+	aspect-ratio: auto;
+	grid-row: span 11 / auto;
+}
+
+.h-12 {
+	aspect-ratio: auto;
+	grid-row: span 12 / auto;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.grid {
+		display: grid;
+		gap: 1em;
+		grid-template-columns: repeat(auto-fit, calc(50% - 1em));
+		grid-auto-rows: 2fr;
+	}
+
+	.w-2,
+	.w-3,
+	.w-4,
+	.w-5,
+	.w-6,
+	.w-7,
+	.w-8,
+	.w-9,
+	.w-10,
+	.w-11,
+	.w-12 {
+		aspect-ratio: auto;
+		grid-column: span 2 / auto;
+	}
+
+	.w-1 {
+		aspect-ratio: auto;
+		grid-column: span 1 / auto;
+
+	}
+}
+
+
+@media only screen and (min-width: 600px) {
+	.grid {
+		display: grid;
+		gap: 1em;
+		grid-template-columns: repeat(auto-fit, calc(8.3% - 1em));
+		grid-auto-rows: 12fr;
+	}
+
+	.w-1 {
+		grid-column: span 1 / auto;
+	}
+
+	.w-2 {
+		aspect-ratio: auto;
+		grid-column: span 2 / auto;
+	}
+
+	.w-3 {
+		aspect-ratio: auto;
+		grid-column: span 3 / auto;
+	}
+
+	.w-4 {
+		aspect-ratio: auto;
+		grid-column: span 4 / auto;
+	}
+
+	.w-5 {
+		aspect-ratio: auto;
+		grid-column: span 5 / auto;
+	}
+
+	.w-6 {
+		aspect-ratio: auto;
+		grid-column: span 6 / auto;
+	}
+
+	.w-7 {
+		aspect-ratio: auto;
+		grid-column: span 7 / auto;
+	}
+
+	.w-8 {
+		aspect-ratio: auto;
+		grid-column: span 8 / auto;
+	}
+
+	.w-9 {
+		aspect-ratio: auto;
+		grid-column: span 9 / auto;
+	}
+
+	.w-10 {
+		aspect-ratio: auto;
+		grid-column: span 10 / auto;
+	}
+
+	.w-11 {
+		aspect-ratio: auto;
+		grid-column: span 11 / auto;
+	}
+
+	.w-12 {
+		aspect-ratio: auto;
+		grid-column: span 12 / auto;
+	}
+}

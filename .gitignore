@@ -1,0 +1,7 @@
+.venv/
+/static
+/media
+db.sqlite
+*.mo
+__pycache__
+/nginx/keys
