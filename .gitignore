@@ -5,3 +5,6 @@ db.sqlite
 *.mo
 __pycache__
 /nginx/keys
+db.sqlite3
+*.log
+.idea

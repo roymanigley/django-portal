@@ -1,0 +1,21 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<div class="card">
+    <div class="card-content">
+        <div class="center">
+            <h3>Login</h3>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <div class="center">
+                <button class="btn" type="submit">
+                    <i class="material-icons">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

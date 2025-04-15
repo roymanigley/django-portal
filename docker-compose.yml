@@ -5,8 +5,11 @@ services:
       - portal-static-files:/var/data/portal/static
       - portal-media-files:/var/data/portal/media
       - portal-db-files:/var/data/portal/db
-    # environment:
-    #   DJANGO_DEBUG: true
+    environment:
+      DJANGO_DEBUG: false
+      DJANGO_SECRET_KEY: '${DJANGO_SECRET_KEY}'
+      DJANGO_ALLOWED_HOSTS: '${DJANGO_ALLOWED_HOSTS}'
+      DJANGO_TRUSTED_ORIGINS: '${DJANGO_TRUSTED_ORIGINS}'
 
   nginx:
     image: nginx:latest

@@ -7,3 +7,4 @@ Dockerfile
 .venv
 LC_MESSAGES/*.mo
 /nginx
+.django.env

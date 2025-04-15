@@ -1,0 +1,69 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load i18n %}
+{% load custom_filters %}
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/portal.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="center">
+        <ul class="pagination">
+            {% if current_page.position > pages.first.position %}
+                <li class="waves-effect">
+                    <a href="?page={{ current_page.position|add:-1 }}"
+                       onclick="showProgress()">
+                        <i class="material-icons">chevron_left</i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled"><a><i class="material-icons">chevron_left</i></a></li>
+            {% endif %}
+            {% for page in pages %}
+                <li class="{% if page.position == current_page.position %}active{% else %}waves-effect{% endif %}">
+                    <a href="?page={{ page.id }}"
+                       onclick="showProgress()">
+                        {{ page.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            {% if current_page.position < pages.last.position %}
+                <li class="waves-effect">
+                    <a href="?page={{ current_page.position|add:1 }}"
+                       onclick="showProgress()">
+                        <i class="material-icons">chevron_right</i>
+                    </a>
+                </li>
+            {% else %}
+                <li class="disabled"><a><i class="material-icons">chevron_right</i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+    <div class="grid">
+        {% for box in current_page.boxes.select_subclasses %}
+            {% if user|has_perm:box.permission %}
+                {% if box.link %}
+
+                    <a href="{{ box.link }}" {% if not box.new_window %}onclick="showProgress(){% endif %}"
+                       target="{% if box.new_window %}_blank{% endif %}"
+                       class="portal-card portal-card-image-link w-{{ box.width }} h-{{ box.height }}"
+                       style="background: url('/media/{{ box.image }}') no-repeat; background-size: cover; background-position: center center">
+                        <div class="portal-card-title" style="text-align: center;">{% translate box.name %}</div>
+                    </a>
+                {% elif box.html %}
+                    <div title="{% translate box.name %}"
+                            class="portal-card portal-card-html w-{{ box.width }} h-{{ box.height }}" {% if box.color %}style="background: {{ box.color }}"{% endif %}>
+                            {{ box.html | safe }}
+                    </div>
+                {% else %}
+                    <div
+                            class="portal-card w-{{ box.width }} h-{{ box.height }}"
+                            style="background: url('/media/{{ box.image }}') no-repeat; background-size: cover; background-position: center center">
+                        <div class="portal-card-title" style="text-align: center;">{% translate box.name %}</div>
+                    </div>
+
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <div class="portal-card" style="opacity: 0;"></div>
+    </div>
+{% endblock %}

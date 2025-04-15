@@ -1,7 +1,7 @@
 FROM python:3.11-alpine
 
 RUN apk update && apk upgrade --no-cache
-RUN apk add gettext
+RUN apk add gettext busybox openrc su-exec
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
@@ -27,6 +27,10 @@ RUN chown app-user:app-group ${DJANGO_DB_DIR} -R
 RUN chown app-user:app-group ${DJANGO_STATIC_DIR} -R
 RUN chown app-user:app-group ${DJANGO_MEDIA_DIR} -R
 
-USER app-user
+RUN chmod u+s /usr/sbin/crond
 
-CMD ["./entrypoint.sh"]
+RUN chmod +x /opt/app/root-entry-point.sh
+ENTRYPOINT ["/opt/app/root-entry-point.sh"]
+
+RUN chmod +x /opt/app/user-entry-point.sh
+CMD ["/opt/app/user-entry-point.sh"]
